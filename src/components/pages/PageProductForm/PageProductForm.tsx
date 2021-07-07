@@ -55,7 +55,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             fullWidth
             autoComplete="off"
             multiline
-            required
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -75,7 +74,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Count"
             fullWidth
             autoComplete="off"
-            required
           />
         </Grid>
         <Grid item container xs={12} justify="space-between">
