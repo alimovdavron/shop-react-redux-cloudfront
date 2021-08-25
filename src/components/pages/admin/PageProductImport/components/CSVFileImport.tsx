@@ -37,6 +37,10 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
         headers: {
             "Content-type": "text/csv"
         },
+        auth: {
+            username: "alimovdavron",
+            password: "TEST_PASSWORD"
+        },
         params: {
           name: encodeURIComponent(file.name)
         }
