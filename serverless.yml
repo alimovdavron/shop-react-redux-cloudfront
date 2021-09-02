@@ -1,3 +1,5 @@
+org: alimovdavron
+app: node-in-aws-web
 service: node-in-aws-web
 
 frameworkVersion: '2'
@@ -5,8 +7,7 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: nodejs12.x
-  # setup profile for AWS CLI.
-  # profile: node-aws
+  region: eu-central-1
 
 plugins:
   - serverless-finch
@@ -17,7 +18,7 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: node-aws-task
     distributionFolder: build
   s3BucketName: ${self:custom.client.bucketName}
 
@@ -38,7 +39,7 @@ resources:
         # VersioningConfiguration:
         #   Status: Enabled
 
-    ## Specifying the policies to make sure all files inside the Bucket are avaialble to CloudFront
+    ## Specifying the policies to make sure all files inside the Bucket are availalble to CloudFront
     WebAppS3BucketPolicy:
       Type: AWS::S3::BucketPolicy
       Properties:

@@ -55,7 +55,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             fullWidth
             autoComplete="off"
             multiline
-            required
           />
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -75,7 +74,6 @@ const Form = (props: FormikProps<FormikValues>) => {
             label="Count"
             fullWidth
             autoComplete="off"
-            required
           />
         </Grid>
         <Grid item container xs={12} justify="space-between">
@@ -109,7 +107,7 @@ export default function PageProductForm() {
   const onSubmit = (values: FormikValues) => {
     const formattedValues = ProductSchema.cast(values);
     const productToSave = id ? {...ProductSchema.cast(formattedValues), id} : formattedValues;
-    axios.put(`${API_PATHS.bff}/product`, productToSave)
+    axios.post(`${API_PATHS.bff}/products`, productToSave)
       .then(() => history.push('/admin/products'));
   };
 
@@ -118,7 +116,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.bff}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
