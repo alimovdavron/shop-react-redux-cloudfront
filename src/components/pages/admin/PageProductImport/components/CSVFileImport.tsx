@@ -35,11 +35,8 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
         method: 'GET',
         url,
         headers: {
-            "Content-type": "text/csv"
-        },
-        auth: {
-            username: "alimovdavron",
-            password: "TEST_PASSWORD"
+            "Content-type": "text/csv",
+            "Authorization": `Basic ${localStorage.getItem('authorization_token')}`
         },
         params: {
           name: encodeURIComponent(file.name)
