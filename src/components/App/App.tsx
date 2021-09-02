@@ -35,8 +35,8 @@ function App() {
           alert(error.response.data?.data);
         }
 
-        if([401, 403].includes(error?.status)){
-            setErrorMessage(error?.data?.message);
+        if([401, 403].includes(error?.response?.status)){
+            setErrorMessage(error.response?.data?.message);
             setOpen(true);
         }
 
