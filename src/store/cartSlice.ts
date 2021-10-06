@@ -56,7 +56,7 @@ export const cartSlice = createSlice({
 export const addToCart = (product: Product) => async (dispatch: any, getState: any) => {
   dispatch(cartSlice.actions.addToCart(product));
   const { cart: { items } } = getState();
-  await axios.put(`${API_PATHS.cart}/profile/cart`, { items }, {
+  await axios.put(`${API_PATHS.bff}/profile/cart`, { items }, {
     headers: {
       Authorization: `Basic ${localStorage.getItem('authorization_token')}`,
     },
@@ -66,7 +66,7 @@ export const addToCart = (product: Product) => async (dispatch: any, getState: a
 export const removeFromCart = (product: Product) => async (dispatch: any, getState: any) => {
   dispatch(cartSlice.actions.removeFromCart(product));
   const { cart: { items } } = getState();
-  await axios.put(`${API_PATHS.cart}/profile/cart`, { items }, {
+  await axios.put(`${API_PATHS.bff}/profile/cart`, { items }, {
     headers: {
       Authorization: `Basic ${localStorage.getItem('authorization_token')}`,
     },
@@ -76,7 +76,7 @@ export const removeFromCart = (product: Product) => async (dispatch: any, getSta
 export const clearCart = () => async (dispatch: any, getState: any) => {
   dispatch(cartSlice.actions.clearCart());
   const { cart: { items } } = getState();
-  await axios.put(`${API_PATHS.cart}/profile/cart`, { items }, {
+  await axios.put(`${API_PATHS.bff}/profile/cart`, { items }, {
     headers: {
       Authorization: `Basic ${localStorage.getItem('authorization_token')}`,
     },
